@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <table class="default">
+
+        
+        <thead class="thead-light">
+          <tr>
+            <th scope="row">
+              <th><b>Nombre</b></th>
+              <th><b>Score</b></th>
+          </tr>
+        </thead>
+
+        {% for row in data_rows %}
+        <tr>
+           {% for  col in row %}
+           <td>{{ col }}</td>
+           {% endfor %}
+        </tr>
+        {% endfor %}
+      
+     
+<!--   
+        <tr>
+          <td>{{ pos1 }}</td>   
+          <td>{{ pos2 }}</td>  
+          <td>{{ pos3 }}</td>    
+          <td>{{ pos4 }}</td>
+          <td>{{ pos5 }}</td>
+          <td>{{ pos6 }}</td> 
+          <td>{{ pos7 }}</td>
+          <td>{{ pos8 }}</td>   
+        </tr> -->
+  
+      </table>
+    
+</body>
+</html>
