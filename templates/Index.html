@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <form action='/Ranking' method="POST" >
-        <input id="Button" type="button" value="+" name="button" onclick="myFunction()">
-        <input id="txt1" type="txt" name="texto_hilo" value="{{score}}" readonly>
-        <input id="txt11" type="txt" name="texto_ilo" value="{{xd}}" readonly>
-        <h2></h2>
-        <h1 class="text-center" id="count-down-timer"></h1>
-        <input id="txt11" type="txt" name="texto_hiloo" placeholder="Ingresa tu nombre" required>
-        <input id="Submit" name="Submit" type="submit" value="Enviar" disabled=true/>
 
-    </form>
-   
-    
-   
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css' ) }}">
+
+
+</head>
+
+<body>
+    <div>
+
+
+        <form method="POST">
+
+            <input class="redondeado" id="txt1" type="txt" name="texto_hilo" value="{{score}}" readonly>
+            <div style="display:none">
+                <input id="txt11" type="txt" name="texto_ilo" value="{{xd}}" readonly>
+            </div>
+            <input id="Button" class="boton uno" type="button" value="PUSH ME" name="button" onclick="myFunction()">
+
+            <h1 style="color:brown; text-align:center; font-size: 100px;" class="text-center" id="count-down-timer">
+            </h1>
+            <div id="obj1" style="display:none">
+                <input id="txt11" type="txt" name="texto_hiloo" placeholder="Ingresa tu nombre" required>
+                <input class="botons" id="Submit" name="Submit" type="submit" value="Enviar" disabled=true />
+            </div>
+
+        </form>
+        <div class="contenedor-botones">
+            <input id="Button" class="boton uno" type="button" value="Ver Ranking" name="button"
+                onclick="myFunctions()">
+
+
+        </div>
+    </div>
+
+
+
+
     <script>
-        var score= 0
-        function myFunction(){
-            score=1+score
-            document.getElementById("txt1").value =score
+
+        var score = 0
+        function myFunctions() {
+            window.location = "http://127.0.0.1:3000/Ranking";
+
+
+        }
+        function myFunction() {
+            score = 1 + score
+            document.getElementById("txt1").value = score
 
         }
 
         function paddedFormat(num) {
-         return num < 10 ? "0" + num : num; 
+            return num < 10 ? "0" + num : num;
         }
 
         function startCountDown(duration, element) {
@@ -42,33 +71,34 @@
 
                 min = parseInt(secondsRemaining / 60);
                 sec = parseInt(secondsRemaining % 60);
-                if (min | sec == 0){
-                  var xd = score
-                  document.getElementById("txt11").value = xd
-                  document.getElementById("Button").disabled = true;
-                  document.getElementById("Submit").disabled = false;
-                //   window.location="http://127.0.0.1:3000/Ranking";
-                  
-  
+                if (min | sec == 0) {
+                    var xd = score
+                    document.getElementById("txt11").value = xd
+                    document.getElementById("Button").disabled = true;
+                    document.getElementById("Submit").disabled = false;
+                    mostrar();
+                    //   window.location="http://127.0.0.1:3000/Ranking";
+
+
                 }
-                
-                
-                // document.getElementById("txt11").value =min
-                // document.getElementById("txt21").value =sec
+
+
                 element.textContent = `${paddedFormat(min)}:${paddedFormat(sec)}`;
 
                 secondsRemaining = secondsRemaining - 1;
                 if (secondsRemaining < 0) { clearInterval(countInterval) };
 
 
-                
+
 
             }, 1000);
 
-            
+
         }
 
+
         window.onload = function () {
+
             let time_minutes = 0; // Value in minutes
             let time_seconds = 8; // Value in seconds
 
@@ -76,16 +106,29 @@
 
             element = document.querySelector('#count-down-timer');
             element.textContent = `${paddedFormat(time_minutes)}:${paddedFormat(time_seconds)}`;
-
             startCountDown(--duration, element);
+
+
+
+
         };
-            
 
-       
-</script>
+        function mostrar() {
+            document.getElementById('obj1').style.display = 'block';
+        }
 
-    
 
-    
+
+
+
+
+
+
+    </script>
+
+
+
+
 </body>
+
 </html>
