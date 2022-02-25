@@ -24,7 +24,8 @@ body{
 }
 
 #main-container{
-    width: 600px;
+    width: 800px;
+    
     margin: 150px auto;
 }
 table{
@@ -81,7 +82,6 @@ tr:hover td{
 }
 
 .contenedor-botones {
-	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 40px;

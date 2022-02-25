@@ -11,6 +11,7 @@
 
 <body>
   <div id="main-container">
+    <h2 style="text-align:center; color: white">TABLA DE POSICIONES</h2>
 
     <table class="default">
 
@@ -49,11 +50,13 @@
 
 
     </table>
-    <input id="Button" type="button" value="Volver a Jugar" name="button" onclick="myFunction()">
+    <div class="contenedor-botones; text-align">
+      <input class="boton uno" id="Button" type="button" value="Volver a Jugar" name="button" onclick="myFunction()">
+    </div>
   </div>
   <script>
     function myFunction() {
-      window.location="http://127.0.0.1:3000/";
+      window.location = "http://127.0.0.1:3000/";
 
     }
   </script>

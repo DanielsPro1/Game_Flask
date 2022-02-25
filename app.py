@@ -24,7 +24,6 @@ collection = db.ranking
 
 
 
-
 @app.route('/', methods=['GET', 'POST'])
 def inicio():
 
@@ -60,11 +59,8 @@ def ranking():
     data= data.head(10)
     
    
-    
-
 
     return render_template("Ranking.html", data_rows=data.to_numpy())
-
 
 
 
